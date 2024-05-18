@@ -2,14 +2,22 @@ version: 0.0
 os: linux
 files:
   - source: /
-    destination: /usr/share/nginx/html
+    destination: /home/ec2-user/deployment
+
 hooks:
   BeforeInstall:
-    - location: scripts/stop-nginx.sh
-      runas: root
+    - location: scripts/stop_docker.sh
+      timeout: 300
+      runas: ec2-user
+    - location: scripts/install_dependencies.sh
+      timeout: 300
+      runas: ec2-user
   AfterInstall:
-    - location: scripts/start-nginx.sh
-      runas: root
+    - location: scripts/start_docker.sh
+      timeout: 300
+      runas: ec2-user
   ApplicationStart:
-    - location: scripts/reload-nginx.sh
-      runas: root
+    - location: scripts/run_nginx.sh
+      timeout: 300
+      runas: ec2-user
+    
