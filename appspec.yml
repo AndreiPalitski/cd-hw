@@ -6,7 +6,7 @@ files:
 
 hooks:
   BeforeInstall:
-    - location: scripts/stop_docker.sh
+    - location: scripts/stop-nginx.sh
       timeout: 300
       runas: ec2-user
     - location: scripts/install_dependencies.sh
