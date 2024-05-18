@@ -13,6 +13,6 @@ hooks:
       timeout: 300
       runas: ec2-user
   AfterInstall:
-    - location: scripts/start_docker.sh
+    - location: scripts/start-nginx.sh
       timeout: 300
       runas: ec2-user
