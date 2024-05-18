@@ -16,8 +16,3 @@ hooks:
     - location: scripts/start_docker.sh
       timeout: 300
       runas: ec2-user
-  ApplicationStart:
-    - location: scripts/run_nginx.sh
-      timeout: 300
-      runas: ec2-user
-    
